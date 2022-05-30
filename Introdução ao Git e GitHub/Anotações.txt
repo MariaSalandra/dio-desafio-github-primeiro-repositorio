@@ -1,0 +1,70 @@
+O que é Git?
+Git é um software de versionamento de código.
+
+Diferenças entre Windows x Linux
+Windows: cd, dir, mkdir, del/rmdir
+Linux: cd, ls, mkdir, rm-rf
+
+Dica: Usar a tecla tab para preenchimento automático e 
+seta para cima para navegar pelos comandos já digitados.
+
+Realizando a instalação do Git.
+Link para download: https://git-scm.com/
+
+O que é SHA1?
+SHA1 (Algoritimo de Hash Seguro), é um conjunto de funções 
+hash criptográficas projetadas pela NSA (Agência de Segurança
+Nacional dos EUA). É um algoritimo de encriptação. Sua encriptação
+gera conjuntos de caracteres identificador de 40 dígitos. Eles são únicos!
+É uma forma curta de representar um arquivo.
+
+BLOBS (Bloco básico de composição) = Tipo / tamanho / \0 / conteúdo do arquivo
+echo 'conteudo' / git hash-object --stdin
+echo -e 'conteudo' / openssl sha1
+echo -e 'blob 9\ 0 conteudo' / openssl sha1
+
+TREES (Armazenam e apontam para tipos de Blobs diferentes)
+README - blob
+Rakefile - blob
+lib - tree simplegit.rb - blob
+
+COMMIT (Aponta para uma árvore, parente, autor, mensagem. O commit também tem
+um carimbo de tempo, com a data e hora da criação). O sha1 desse commit é o hash
+de toda essa informação.
+
+Chaves SSH e Token
+ - Chave SSH: Estabelece uma conexão segura e encriptada entre duas máquinas.
+ - Token de acesso pessoal: Gera um código para clonagem de repositório usando
+HTTPS.
+
+Primeiros comandos com Git
+ - git init (para iniciar um repositório no git)
+ - git add (para mover arquivos)
+ - git commit (criar commit)
+
+Dica: flag -a (para exibir arquivos ocultos)
+
+Configurações iniciais para uso no git
+ - No terminal do Git Bash:
+$ git config --global user.email "" 
+$ git config --global user.name ""
+
+OBS: É importante que o e-mail e o usuário sejam os mesmos cadastrados no GitHub para
+que não ocorram erros ao commitar
+
+ - git add nomeArquivo
+ - git add *
+	      } Ambos adicionam todas as modificações do repositório local para o staged area 
+ - git add . 
+ - git commit -m "msg" - cria o objeto no git
+
+Alguns comandos:
+ - git init
+ - git add *
+ - git status
+ - git commit -m "msg"
+ - git config --list
+ - git remote -v
+ - git push origin 
+ - git pull origin
+ - git clone
